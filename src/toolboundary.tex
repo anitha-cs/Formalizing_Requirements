@@ -1,0 +1,22 @@
+\subsection{Matching Tool Boundaries}
+
+While it is ideal to use a tool/technique to verify the entire system's requirements, in practice it is inevitable to avoid the use of multiple tools for scalability concerns and different verification needs. One of the well known problems associated with using multiple tools is matching the sematic differences between them. However, even when we use tools that are have same semantics, errors arise when recapturing requirements between the tools.
+
+In GPCA, we used a combination of two tools to cope with scalability of verification. We used AGREE to model the system architecture and verify the decomposition of system requirements into component requirements. Subsequently, we also developed detailed behavioral models for each component in Simulink and verified if the component requirements verified in AGREE are indeed satisfied by the respective component's behavioral model using Simulink Design Verifier (SDV). The advantage of this tool combination in addition to being scalable is that the semantics of the notation used in AGREE and SDV - Embedded Matlab - to specify requirements are identical. Hence, we presumed that the translation of requirements between AGREE and Simulink notations can be done in a error free manner.
+
+While a majority of the requirements were correctly recaptured between the notations some requirements were incorrectly recaptured that, unfortunately, was not easy to detect. We identified two issues. One was transcription errors and the other was requirement management issues. The transcription errors occurred in the process of manually recapturing requirements. When recapturing a few requirements we unknowingly changed the operators. In GPCA, we translated the following requirement that was proved in Simulink,
+\\\\
+\texttt{SystemOn and (AlarmLevel = Med) $\Rightarrow$ 
+FlowRate $\leq$ LowFlowRate}
+\\\\
+into AGREE, as follows:
+\\\\
+\texttt{SystemOn and (AlarmLevel = Med) $\Rightarrow$ 
+Flowrate $<$ LowFlowRate}
+\\\\
+It was not possible to dismiss this error as a mere typing error, since it demonstrates the potential for occurrence of such issues. Unfortunately, this error was not visible until we checked for AGREE's feature to verify realizability or feasibility of requirements. When AGREE tool returned that the above requirement was not realizable, we were surprised since it was proven in the detailed behavioral model in Simulink. But a careful inspection of the requirements reveled that there was a transcription error and we manually corrected 4 such errors in the requirements.
+
+Another issue, that we believe is more common, is maintaining the synchrony between the requirements in both tools. After we proved requirements in AGREE, when we recaptured it for verification using SDV, at times we had to slightly change the way requirements were formalized, such that it is verifiable in the behavioral Simulink. However, such changes were not always corrected and reverified in AGREE. This caused mismatch between the requirements in AGREE and Simulink.
+
+Although we were diligent in recapturing the requirements between the tools, human errors and negligence was unavoidable. For the GPCA, we did additional manual inspections to verify the synchrony. However, our long term goal is to fully automate the translation and check for synchrony to avoid such issues. Infact, our recommendation to engineers performing such tasks is to ensure there is either a strict process or automation to avoid such issues.
+

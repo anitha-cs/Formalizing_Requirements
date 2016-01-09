@@ -1,0 +1,40 @@
+
+
+Although it is a common practice to decompose systems into smaller and manageable components to cope with complexity of development, rigorously ensuring the correctness of such a decomposition has remained a challenge. In many domains, especially safety critical system domains, formal methods (mathematical techniques) are used to verify the correctness of decomposition. While formal methods are rigorous, in our opinion, the rigor of formal methods are deceptive if used incorrectly.
+
+In this paper we report on some of the challenges and pitfalls that we encountered when transition from system requirements to subsystem requirements.
+
+Although we have well established patterns and guidelines to decompose systems into components to cope with complexity of its development, 
+
+This paper is a discussion of some of the practical 
+
+are subtle yet
+The topic of the thesis is the transition from system requirements to subsystem requirements.
+
+In this paper we are going to talk about the challenges involved in formalizing and verifying requirements for verification of components (software) that have elaborate models and natural language requirements of high level system requirements.
+
+Challenges/Pitfalls are:
+
+What is the issue:
+
+1. Given system requirements, defining correct software requirements.  A common (mis)practice is flow system requirements into software requirements by
+
+multiple ``layers'' in a hierarchically composed system.
+
+
+1. There are challenging issues in mapping requirements between layers in hierarchically composed systems.
+
+- At the system/software boundary, a common (mis)practice is to formalize the system requirements as software requirements by changing variable names. System Requirements describe a range of acceptable behaviours (relational), whereas software requirements should almost always be functional. Failing to capture the difference results in verification errors.
+
+- At various software layers, it is likely that small variations of requirements will be "flowed down" (sometimes just by changing variable names).  Requirements changes at one layer "ripple through" these layers requiring non-trivial effort to change.
+
+2. Specifying operational requirements in natural language is (deceptively) easy; however, it is likely that exceptional conditions are not caught.  When starting from natural language requirements then later formalizing them, the natural language requirements often do not provide enough information to determine proper system behavior in these cases.  Thus, domain experts must be involved in the formalization process - there is no systematic process to "fill in" these details.
+
+3. Formalizing prioritized system behaviors (if C and not X then Y) can be challenging. Similar to operational requirements, one needs to systematically formalize properties to verify the independent effect of each requirement. This easily becomes too complex to manage.
+
+4. Using formal tools with cursory knowledge about how the tools work can be dangerous.
+(We could expand on the discussion from the NFM paper here)
+
+5. Tool boundaries are very problematic; even if "same" semantics, the translation of properties between tools
+  leads to lots of errors.
+

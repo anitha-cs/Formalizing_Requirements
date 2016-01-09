@@ -1,0 +1,63 @@
+\begin{thebibliography}{1}
+
+\bibitem{NFM2012:CoGaMiWhLaLu}
+Darren~D. Cofer, Andrew Gacek, Steven~P. Miller, Michael~W. Whalen, Brian
+  LaValley, and Lui Sha.
+\newblock Compositional verification of architectural models.
+\newblock In Alwyn~E. Goodloe and Suzette Person, editors, {\em Proceedings of
+  the 4th NASA Formal Methods Symposium (NFM 2012)}, volume 7226, pages
+  126--140, Berlin, Heidelberg, April 2012. Springer-Verlag.
+
+\bibitem{Hammond01:WiW}
+J.~Hammond, R.~Rawlings, and A.~Hall.
+\newblock Will it work? [requirements engineering].
+\newblock In {\em Requirements Engineering, 2001. Proceedings. Fifth IEEE Int'l
+  Symposium on}, pages 102 --109, 2001.
+
+\bibitem{SimulinkDesignVerifier}
+Math{W}orks {I}nc. {S}imulink {D}esign {V}erifier.
+\newblock http://www.mathworks.com/products/sldesignverifier, 2015.
+
+\bibitem{mavin2009easy}
+A.~Mavin, P.~Wilkinson, A.~Harwood, and M.~Novak.
+\newblock Easy approach to requirements syntax (ears).
+\newblock In {\em 17th IEEE Int'l Requirements Engineering Conf.}, pages
+  317--322. IEEE, 2009.
+
+\bibitem{Miller01:dasc}
+Steven~P. Miller and Alan~C. Tribble.
+\newblock Extending the four-variable model to bridge the system-software gap.
+\newblock In {\em Proceedings of the Twentith IEEE/AIAA Digital Avionics
+  Systems Conf. (DASC'01)}, October 2001.
+
+\bibitem{Miller03:shalls}
+Steven~P. Miller, Alan~C. Tribble, and Mats Per~Erik Heimdahl.
+\newblock Proving the shalls.
+\newblock In Keijiro Araki, Stefania Gnesi, and Dino Mandrioli, editors, {\em
+  Proceedigns of the Int'l Symposium of Formal Methods Europe (FME 2003)},
+  volume 2805 of {\em Lecture Notes in Computer Science}, pages 75--93, Pisa,
+  Italy, September 2003. Springer.
+
+\bibitem{req2code}
+Anitha Murugesan, Mats~P.E. Heimdahl, Michael~W. Whalen, Sanjai Rayadurgam,
+  John Komp, Lian Duan, Baek-Gyu Kim, Oleg Sokolsky, and Insup Lee.
+\newblock From requirements to code: Model based development of a medical cyber
+  physical system.
+\newblock {\em Fourth International Symposium on Software Engineering in
+  Healthcare workshop (SEHC 2014)}, 2014.
+
+\bibitem{hilt2013}
+Anitha Murugesan, Michael~W. Whalen, Sanjai Rayadurgam, and Mats~P.E. Heimdahl.
+\newblock Compositional verification of a medical device system.
+\newblock In {\em ACM Int'l Conf. on High Integrity Language Technology (HILT)
+  2013}. ACM, November 2013.
+
+\bibitem{Whalen07:FMICS}
+Michael~W. Whalen, Darren~D. Cofer, Steven~P. Miller, Bruce~H. Krogh, and
+  Walter Storm.
+\newblock Integration of formal analysis into a model-based software
+  development process.
+\newblock In Stefan Leue and Pedro Merino, editors, {\em FMICS}, volume 4916 of
+  {\em Lecture Notes in Computer Science}, pages 68--84. Springer, 2007.
+
+\end{thebibliography}

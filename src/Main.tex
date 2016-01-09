@@ -1,0 +1,164 @@
+\documentclass{llncs}
+\usepackage{tabularx,colortbl}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{flushend}
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{stmaryrd}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{latexsym}
+%\usepackage{float}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{longtable}
+\usepackage{supertabular}
+\usepackage{caption}
+\DeclareCaptionType{copyrightbox}
+\usepackage{times}
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{balance}
+%\usepackage{clrscode3e}
+
+\gdef\SetFigFont#1#2#3#4#5{}
+
+\captionsetup{font=normalsize,labelfont=normalsize}
+\usepackage{algorithm}
+\RequirePackage[noend]{algorithmic}
+\renewenvironment{algorithm}[1][\textwidth]%
+{\begin{minipage}[t][\totalheight][c]{#1}\begin{algorithmic}[1]}  %%% change [1] to [0] to turn off line numbers
+{\end{algorithmic}\end{minipage}}
+
+%\definecolor{nsrcolor}{rgb}{0.7,0.0,1.0}
+%\newcommand*{\nsr}[1]{}%{\textcolor{nsrcolor}{\noindent\textbf{[nsr:~}\textit{#1}]}}
+
+%% %% Use for each in ``FOR'' constructs
+\renewcommand{\algorithmicfor}{\textbf{for each}}
+
+%% %% All comments are in italics
+\renewcommand{\algorithmiccomment}[1]{\textit{${/\ast}$~#1~${\ast/}$}}
+
+%% %% Use ``procedure'' instead of ``Algorithm'' for off set
+\renewcommand{\algorithmicensure}{\textbf{procedure}}
+
+\newcommand{\algoname}[1]{\ENSURE #1}
+\newcommand*{\algobox}[1]{\framebox{#1}}
+
+
+\definecolor{lightgray}{gray}{0.9}
+
+%\usepackage{hyperref}
+
+\newcommand{\tab}{\hspace*{3ex}}
+\newcommand{\codetab}{\hspace*{2ex}}
+\newcommand{\tinytab}{\hspace*{.75ex}}
+
+%% Create a uniform and easy to change reference to figures and tables.
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\eqnref}[1]{Eq.~(\ref{#1})}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\defref}[1]{Definition~\ref{#1}}
+
+
+\begin{document}
+\newcommand{\mcdc}{}%MC/DC}
+\newcommand{\mike}[1]{\textcolor{red}{Mike: #1}}
+\newcommand{\anitha}[1]{\textcolor{red}{#1}}
+\newcommand{\oksana}[1]{\textcolor{magenta}{Oksana: #1}}
+\newcommand{\sjp}[1]{\textcolor{blue}{#1}}
+\newcommand{\nsr}[1]{\textcolor{blue}{#1}}
+\sloppypar
+
+
+\title{From Informal System Requirements to Formal Software Specifications  - An Experience Report\thanks{This work has been partially supported by NSF grants CNS-0931931 and CNS-1035715.}}
+
+\author{Anitha Murugesan, Dan Cofer, Michael Whalen, and Mats Heimdahl}
+\institute{Department of Computer Science and Engineering,\\
+ University of Minnesota, 200 Union Street, Minneapolis, MN 55455,USA\\
+\email{\{muru0011,cofer008, whal0046, heimd002\}@umn.edu}
+}
+
+\maketitle
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\input{introduction}
+\input{example}
+\input{challenges}
+\input{structuring}
+\input{flowdown}
+\input{toolknowledge}
+\input{toolboundary}
+\input{recommendation}
+\input{conclusion}
+
+\iffalse
+\section{Infusion Pump - Case Example}
+\section{Formalizing Requirements}
+
+using the Specific challenges - I would like to explain our approach right after each challenge.
+
+1a. Formalizing Alarm requirements - Individually checking each alarm effect - same functionality but different priority. - no higher level alarm is active.
+
+\vspace{2mm}
+
+1b. Formalizing Alarm requirements - Notification Requirements - Priority in notification.
+
+\vspace{2mm}
+
+2. Formalizing Infusion manager requirements - Functional requirements - Requires alarms and other conditions to be specified. - orthogonal mode concerns.
+
+\vspace{2mm}
+3. Formalizing Configuration manager requirements - Requires sequence of actions to be formalized.
+
+\section{Tracing Requirements}
+
+About traceability with justification - informal traceability between system requirements and software requirements. Scope mapping issue - parts of system requirements map to parts of software requirements. How to map them - the justification serves as a link.
+
+\vspace{2mm}
+
+explain how we assume just one component implements the system requirements - but other component requirement are necessary to satisfy the requirements. Our semi-automatic approach to identify min set of component requirements.
+
+\vspace{2mm}
+
+Explain how we tried to reuse the system level requirements to software. Even without hardware requirements the system requirements were satisfied. Also Problems if we treat both system and software requirements as functional.
+
+\section{Pitfalls of Formal Verifications}
+
+In this section, we describe how tools produced misleading/false positive results.
+
+\vspace{2mm}
+1. using output variables to formalize requirements. We need to include inputs that capture output's correctness. for example:
+
+output 1 => ouput 2
+is not good. we should have some clarity on what that outout1 means with respect to inputs.
+
+\vspace{2mm}
+
+2. how to access what have we covered - we could describe how we formalized notification requirements -
+
+a or b or c => message 1 or 2 or 3
+
+!a => !1...
+
+We havent specified what happens if 2 and 3 happens at the same time.
+
+\vspace{2mm}
+3. failed Consistency and realizability checking - The case we formalized it using circular dependencies internally. But the consistency and realizability checks failed.
+\fi
+
+%\vspace{0.5in}
+\bibliographystyle{plain}
+\bibliography{../../../../bibtex/crisys}
+%\balancecolumns
+
+\end{document} 
