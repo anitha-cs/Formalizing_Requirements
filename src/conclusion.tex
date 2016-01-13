@@ -1,4 +1,19 @@
 \section{Discussion and Conclusion}
 \label{sec:conclusion}
 
-In this paper, we elaborated on the challenges encountered while adopting formal methods for engineering requirements of a complex medical device system.
+In this paper, we elaborated the challenges that we encountered and our approaches to successfully use formal methods for engineering requirements of a complex medical device system. There were a number of useful lessons learned from this effort, especially when applying the techniques "at scale". Based on our experience, we assert that to realize the benefits of using formal methods to verify requirements we need to adapt both the requirements engineering activities to support formal methods as well as the formal techniques to recognize common requirement verification concerns.
+
+The quality and clarity of requirements documentation plays a crucial role in cost effectively and precisely using formal methods to verify the requirements. While some of the existing requirements documentation patterns such as those proposed by Mavin et. al.~\cite{mavin2009easy} provide a set of structural rules to document requirements, they do not discuss about identifying the contextual information of the requirement. Even the well known \emph{specification patterns}~\cite{dwyer1999patterns} focus on formalizing certain patterns of natural language requirements into temporal logic notations, do not help to address the challenge of identifying the context of the requirements. While we acknowledge the benefits of these approaches and advocate their usage, in our opinion appropriately organizing the statements also plays a crucial role in formalizing requirements precisely and easily. We believe that the hierarchical modal organization that we proposed in this paper is suitable for many systems in the critical system domain. 
+
+Even after formalizing the requirements, assessing its sematic precision is a challenge, especially when requirements are flow down to components. This is because the action of flowing down requirements is an intellectual activity performed the engineers that is difficult to validate  unless it is documented. Capturing their intuition behind their decision to flow down is a crucial piece of information that helps assessing the requirements' exactitude. The \emph{traceability argument} that we proposed in this paper is a step towards capturing this information.
+
+In addition to improving the quality of requirements, the developers of formal tools should identify \emph{``hazardous"} use and fallibilities of their tools and mitigate them by either providing guidance or making them apparent in their tool's user interface. While we requested the developers of AGREE tool to enhance their tool to make the error detection easily, the developers of formal tools should proactively build such capabilities.
+
+In conclusion, we believe that although the lessons we leaned in this effort was explained using the infusion pump as a case example, they are broadly applicable to practitioners working on related applications and that our experience serves informative.
+
+
+
+
+
+
+
