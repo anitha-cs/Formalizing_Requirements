@@ -1,4 +1,4 @@
-\subsection{Tool Fallibilities}
+\subsection{Challenge 3: Cursory Knowledge of Tools}
 
 Although we used sophisticated tools with advanced capabilities such as consistency checks, cursory knowledge about how the tools perform such checks lead us to successfully verify inconsistent requirements. The tool we used -- AGREE -- had capability to check consistency of requirements in addition to verifying them that detects logical contradictions among requirements. The intent of performing such checks is to identify if the verification was trivially successful due to presence of inconsistent requirements. While the tool declared that all the GPCA requirements are consistent, our tool expert during the manually inspection phase found that there were several self-inconsistent requirements. To our surprise, those inconsistencies were not reported by the tool. This was primarily because we did not have full knowledge of the tool settings associated with that check.
 
@@ -12,9 +12,17 @@ While the tool successfully verified the above requirement involving the \texttt
 
 $$ \texttt{boluscnt:int = 0 -> pre(boluscnt) + PatientRequest} $$
 
-While adding \emph{``pre"} fixed this specific type of inconsistency, our concern was that the tool's consistency checker did not identify this problem. After discussing with the tool developers, we found that the tool was set up by default to check for consistency only in the initial time step (first step of execution). This was not a bug in the tool, rather an intensional default setting to optimize the performance of the tool. According to the tool developers, most inconsistencies can be found in the first step and this was an exceptional condition. Since the \texttt{boluscnt} equation was inconsistent only after the initial step (its initial value was 0), the consistency checker did not report the problem. 
+While adding \emph{``pre"} fixed this specific type of inconsistency, our concern was that the tool's consistency checker did not identify this problem. After discussing with the tool developers, we found that the tool was set up by default to check for consistency only in the initial time step (first step of execution). This was not a bug in the tool, rather an intensional default setting to optimize the performance of the tool. According to the tool developers, most inconsistencies can be found in the first step and this was an exceptional condition. Since the \texttt{boluscnt} equation was inconsistent only after the initial step (its initial value was 0), the consistency checker did not report the problem.
 
-In our opinion, this situation is not limited to this specific example or tool but generalizable for all model checking tools and techniques. The root cause of this problem is not just our cursory knowledge of the tools, but also the lack of adequate details of the task displayed by the tool. %To mitigate this problem, in addition to validating the formalization with domain and tool experts, an indepth understanding of the tool settings that performs such checks and validations, rather than blindly trusting the results from the tool.
+In our opinion, this situation is not limited to this specific example or tool but generalizable for all model checking tools and techniques. The root cause of this problem is not just our cursory knowledge of the tools, but also the lack of adequate details of the task displayed by the tool. 
+
+
+\subsubsection {Solution: Understanding Tool Settings}
+
+We believe that the root cause of the AGREE tool not identifying the consistency issues in the formalized requirements was not the tool's default setting, but the fact that we were not aware of that setting and it was not apparent in the results. Hence, to address the issue from the tool side we requested the tool developers to provide elaborate messages of certain key configurations when using the features, that play a key role in determining their correctness. After that change, AGREE now displays the depth of consistency check along with the results. While such a change may not be possible with every tool and feature we use, we strongly recommend the engineers to delve deep into the details and configuration of tool to precisely understand the results, especially when there is limited information provided by the tool along with the results. %Additionally, this error motivated the tool developers to enhance the AGREE tool to check for \emph{vacuity}. We believe with vacuity checking we could effectively identify some of these issues.
+
+
+%To mitigate this problem, in addition to validating the formalization with domain and tool experts, an indepth understanding of the tool settings that performs such checks and validations, rather than blindly trusting the results from the tool.
 
 
 %Hence, when the tool developers
